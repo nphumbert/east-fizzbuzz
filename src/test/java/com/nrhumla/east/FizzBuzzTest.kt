@@ -34,4 +34,16 @@ class FizzBuzzTest {
 
         assertThat(output.receivedOutput).isEqualTo("Buzz")
     }
+
+    @Test
+    fun should_output_bang_when_multiple_of_7() {
+        val output = FakeOutput()
+        val analyzers = asList(ModuloAnalyzer(7, "Bang"))
+        val fizzBuzz = FizzBuzz(output, analyzers)
+
+        fizzBuzz.display(7)
+
+        assertThat(output.receivedOutput).isEqualTo("Bang")
+    }
+
 }
